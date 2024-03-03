@@ -1,0 +1,14 @@
+site:
+  title: "HGames"
+
+server:
+  files:
+    dev:
+      contentRoot: "build/processedResources/js/main/public"
+      script: "build/dist/js/developmentExecutable/hgames.js"
+      api: "build/libs/hgames.jar"
+    prod:
+      script: "build/dist/js/productionExecutable/hgames.js"
+      siteRoot: ".kobweb/site"
+
+  port: 8080
