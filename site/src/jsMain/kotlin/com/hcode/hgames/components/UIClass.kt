@@ -35,6 +35,7 @@ import org.jetbrains.compose.web.attributes.Draggable
 import org.jetbrains.compose.web.css.*
 import org.jetbrains.compose.web.dom.*
 import org.w3c.dom.INSTANT
+import org.w3c.dom.Node
 import org.w3c.dom.ScrollBehavior
 import org.w3c.dom.ScrollToOptions
 import kotlin.random.Random
@@ -712,6 +713,8 @@ private fun LeftSide(
         contentAlignment = Alignment.TopCenter
     ){
 
+
+
         Iframe(
             attrs = Modifier
                 .id("GameIframe")
@@ -726,6 +729,7 @@ private fun LeftSide(
                 )
                 .toAttrs{
                     attr("src", "https://html5.gamemonetize.co/$id/")
+
                 }
         )
     }
