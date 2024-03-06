@@ -726,6 +726,7 @@ private fun LeftSide(
                 )
                 .toAttrs{
                     attr("src", url)
+                    attr("sandbox","allow-same-origin allow-scripts allow-forms allow-popups allow-top-navigation-by-user-activation")
                 }
         )
     }

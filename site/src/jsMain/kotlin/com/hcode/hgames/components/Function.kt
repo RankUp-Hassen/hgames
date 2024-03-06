@@ -152,7 +152,7 @@ fun getVideoUrl(id: String): String {
 }
 
 fun getGameUrl(id: String): String {
-    return "https://html5.gamemonetize.co/$id"
+    return "https://html5.gamemonetize.co/$id/"
 }
 
 
