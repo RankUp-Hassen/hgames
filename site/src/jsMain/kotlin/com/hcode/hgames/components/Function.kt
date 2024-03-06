@@ -151,9 +151,7 @@ fun getVideoUrl(id: String): String {
     return "https://gamemonetize.video/index.php?domain=gamemonetize.com&gameid=$id&getads=false"
 }
 
-fun getGameUrl(id: String): String {
-    return "https://html5.gamemonetize.co/$id/"
-}
+
 
 
 fun getImageUrl(id: String): String {

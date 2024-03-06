@@ -536,7 +536,7 @@ fun GamePlace(
                             .height(screenHeight.px)
                             .fillMaxWidth()
                     ),
-                url = getGameUrl(currentGame.value.thumb) ,
+                id = currentGame.value.thumb ,
                 BP = breakpoint,
                 dark = dark,
             )
@@ -690,7 +690,7 @@ private fun RightSide(
 @Composable
 private fun LeftSide(
     modifier: Modifier ,
-    url : String ,
+    id : String ,
     BP: Breakpoint,
     dark: Boolean,
 ){
@@ -725,8 +725,7 @@ private fun LeftSide(
                         .translateY(y.px)
                 )
                 .toAttrs{
-                    attr("src", url)
-                    attr("sandbox","allow-same-origin allow-scripts allow-forms allow-popups allow-top-navigation-by-user-activation")
+                    attr("src", "https://html5.gamemonetize.co/$id/")
                 }
         )
     }
