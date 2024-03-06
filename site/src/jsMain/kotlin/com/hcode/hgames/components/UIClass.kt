@@ -717,6 +717,7 @@ private fun LeftSide(
 
         Iframe(
             attrs = Modifier
+                .title(id)
                 .id("GameIframe")
                 .fillMaxWidth()
                 .height(screenHeight.px)
@@ -728,7 +729,6 @@ private fun LeftSide(
                         .translateY(y.px)
                 )
                 .toAttrs{
-                    attr("title" , id)
                     attr("src", "https://html5.gamemonetize.co/$id/")
 
                 }
