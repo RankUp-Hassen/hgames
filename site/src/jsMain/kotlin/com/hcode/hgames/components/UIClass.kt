@@ -1210,7 +1210,6 @@ fun HomeGames(
                     SimpleGrid(
                         numColumns = ResponsiveValues(base = 3 , md = 3 , sm = 3 , lg = 3 , xl = 3),
                         modifier = Modifier
-                            .fillMaxHeight()
                     ){
                         games.forEach { game ->
                             GameItemDisplay(
