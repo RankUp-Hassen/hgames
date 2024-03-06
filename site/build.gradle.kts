@@ -24,6 +24,7 @@ kobweb {
     app {
         index {
             description.set("Powered by Kobweb")
+
         }
         legacyRouteRedirectStrategy.set(LegacyRouteRedirectStrategy.DISALLOW)
         export.timeout = Duration.parse("600s")

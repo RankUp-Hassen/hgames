@@ -1,26 +1,7 @@
 package com.hcode.hgames.components
 
 import androidx.compose.runtime.MutableState
-import com.hcode.hgames.data.action
-import com.hcode.hgames.data.adventure
-import com.hcode.hgames.data.arcade
-import com.hcode.hgames.data.babyHazel
-import com.hcode.hgames.data.bejeweled
-import com.hcode.hgames.data.boys
-import com.hcode.hgames.data.clicker
-import com.hcode.hgames.data.cooking
-import com.hcode.hgames.data.girls
-import com.hcode.hgames.data.hyperCasual
-import com.hcode.hgames.data.ioo
-import com.hcode.hgames.data.multiPlayer
-import com.hcode.hgames.data.puzzle
-import com.hcode.hgames.data.racing
-import com.hcode.hgames.data.shooting
-import com.hcode.hgames.data.soccer
-import com.hcode.hgames.data.sport
-import com.hcode.hgames.data.stickMan
-import com.hcode.hgames.data.threeD
-import com.hcode.hgames.data.twoPlayer
+import com.hcode.hgames.data.*
 import com.hcode.hgames.pages.fav
 import com.hcode.hgames.pages.history
 import com.varabyte.kobweb.silk.components.style.breakpoint.Breakpoint
@@ -109,6 +90,8 @@ val gamesListData = listOf(
 
 fun getAllGames(): MutableList<FDG> {
     val all = mutableListOf<FDG>()
+    all.addAll(hotGames)
+    all.addAll(bestGames)
     gamesListData.forEach {
         all.addAll(it)
     }

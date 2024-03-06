@@ -35,7 +35,6 @@ import org.jetbrains.compose.web.attributes.Draggable
 import org.jetbrains.compose.web.css.*
 import org.jetbrains.compose.web.dom.*
 import org.w3c.dom.INSTANT
-import org.w3c.dom.Node
 import org.w3c.dom.ScrollBehavior
 import org.w3c.dom.ScrollToOptions
 import kotlin.random.Random
@@ -1167,6 +1166,13 @@ fun HomeGames(
         part = if (count%2 == 1) count else count - 1
     })
 
+    val breakpoint = rememberBreakpoint()
+    var showRow by remember { mutableStateOf(true) }
+    LaunchedEffect(breakpoint){
+        showRow = breakpoint > Breakpoint.SM
+    }
+
+
 
 
     Box (
@@ -1189,13 +1195,39 @@ fun HomeGames(
                     .padding(top = 80.px),
                 horizontalAlignment = Alignment.CenterHorizontally
             ){
-                dataGames.chunked(part).forEach{ games ->
-                    CustomRow(
-                        data = games,
-                        size = 150,
-                        currentGame = currentGame,
-                        isPlay = isPlay
-                    )
+                if (showRow){
+                    dataGames.chunked(part).forEach{ games ->
+                        CustomRow(
+                            data = games,
+                            size = 150,
+                            currentGame = currentGame,
+                            isPlay = isPlay
+                        )
+                    }
+
+                }else{
+                    val games = if(more*3 < data.size) data.subList(0,more*3) else data
+                    SimpleGrid(
+                        numColumns = ResponsiveValues(base = 3 , md = 3 , sm = 3 , lg = 3 , xl = 3),
+                        modifier = Modifier
+                            .fillMaxHeight()
+                    ){
+                        games.forEach { game ->
+                            GameItemDisplay(
+                                game = game,
+                                modifier = Modifier
+                                    .margin(5.px)
+                                    .size(((window.innerWidth-120)/3).px)
+                                    .borderRadius(r = 20.percent)
+                                    .onClick {
+                                        currentGame.value = game
+                                        isPlay.value = true
+                                        setHistory(game.id)
+                                    }
+
+                            )
+                        }
+                    }
                 }
 
                 if (dataGames.size<data.size){
@@ -1242,9 +1274,6 @@ fun HomeGames(
     scope.launch {
         op = 1
     }
-
-
-
 }
 
 
@@ -1252,20 +1281,20 @@ fun HomeGames(
 
 @Composable
 fun CustomRow(
-    data: List<FDG> = action,
+    data: List<FDG>,
     size: Int,
     currentGame: MutableState<FDG>,
     padding : Int = 5,
     isPlay : MutableState<Boolean>
 ){
+
+
     var randomIndex = Random.nextInt(0,data.size)
     while (randomIndex%2!=0){
         randomIndex = Random.nextInt(0,data.size)
     }
-
     val l1 = data.subList(0,randomIndex)
     val l2 = data.subList(randomIndex+1,data.size)
-
     Row{
         Column {
             Row {
@@ -1366,5 +1395,6 @@ fun CustomRow(
             }
         }
     }
+
 }
 
