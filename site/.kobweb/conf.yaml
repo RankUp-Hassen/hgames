@@ -11,6 +11,4 @@ server:
       script: "build/dist/js/productionExecutable/hgames.js"
       siteRoot: ".kobweb/site"
 
-  ports:
-    http: 8080
-    https: 8443
+  port: 8080

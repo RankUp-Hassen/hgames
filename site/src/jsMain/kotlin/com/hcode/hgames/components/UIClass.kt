@@ -728,6 +728,7 @@ private fun LeftSide(
                         .translateY(y.px)
                 )
                 .toAttrs{
+                    attr("title" , id)
                     attr("src", "https://html5.gamemonetize.co/$id/")
 
                 }
