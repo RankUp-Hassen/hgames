@@ -1167,7 +1167,7 @@ fun HomeGames(
     })
 
     val breakpoint = rememberBreakpoint()
-    var showRow by remember { mutableStateOf(true) }
+    var showRow by remember { mutableStateOf(false) }
     LaunchedEffect(breakpoint){
         showRow = breakpoint > Breakpoint.SM
     }

@@ -138,8 +138,6 @@ fun MainPage(
 
             }
 
-
-
             TopBar(
                 dark = dark,
                 modifier = Modifier
@@ -160,36 +158,5 @@ fun MainPage(
         )
 
     }
-}
-
-fun getHistoryList(): List<FDG> {
-    val listId = history.split("\n")
-    val games = mutableListOf<FDG>()
-    listId.forEach {id ->
-        if (id != ""){
-            try {
-                games.add(allGames[allGames.indexOfFirst { it.id == id }])
-            }catch (e:Exception){
-                println(e.message)
-            }
-        }
-    }
-    return games
-
-}
-
-fun getFavList(): MutableList<FDG> {
-    val listId = fav.split("\n")
-    val games = mutableListOf<FDG>()
-    listId.forEach {id ->
-        if (id != ""){
-            try {
-                games.add(allGames[allGames.indexOfFirst { it.id == id }])
-            }catch (e:Exception){
-                println(e.message)
-            }
-        }
-    }
-    return games
 }
 
