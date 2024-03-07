@@ -35,14 +35,10 @@ var history = localStorage["historyGamesHCode"] ?: ""
 @Composable
 fun HomePage() {
     val dark = remember { mutableStateOf(localStorage.getItem("darkModeGames").toBoolean()) }
-    /*
-    document.addEventListener("contextmenu", {
+
+    window.addEventListener("contextmenu", {
         it.preventDefault()
     })
-
-     */
-
-
 
     Box(
         modifier = Modifier
