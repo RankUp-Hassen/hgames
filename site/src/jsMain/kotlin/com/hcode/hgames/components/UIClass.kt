@@ -732,6 +732,13 @@ private fun LeftSide(
 
                 }
         )
+
+    }
+
+    LaunchedEffect(Unit){
+        document.getElementById("GameIframe")?.addEventListener("contextmenu", {
+            it.preventDefault()
+        })
     }
 
 }

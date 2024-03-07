@@ -16,10 +16,14 @@ import com.varabyte.kobweb.compose.ui.Modifier
 import com.varabyte.kobweb.compose.ui.graphics.Color
 import com.varabyte.kobweb.compose.ui.modifiers.*
 import com.varabyte.kobweb.core.Page
+import kotlinx.browser.document
 import kotlinx.browser.localStorage
+import kotlinx.browser.window
 import org.jetbrains.compose.web.css.Position
 import org.jetbrains.compose.web.css.ms
 import org.jetbrains.compose.web.css.px
+import org.w3c.dom.events.Event
+import org.w3c.dom.events.KeyboardEvent
 import org.w3c.dom.get
 
 
@@ -31,6 +35,14 @@ var history = localStorage["historyGamesHCode"] ?: ""
 @Composable
 fun HomePage() {
     val dark = remember { mutableStateOf(localStorage.getItem("darkModeGames").toBoolean()) }
+    /*
+    document.addEventListener("contextmenu", {
+        it.preventDefault()
+    })
+
+     */
+
+
 
     Box(
         modifier = Modifier
