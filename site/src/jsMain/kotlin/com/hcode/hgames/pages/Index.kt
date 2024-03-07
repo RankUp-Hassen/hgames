@@ -5,6 +5,8 @@ import androidx.compose.runtime.*
 import com.hcode.hgames.components.*
 import com.hcode.hgames.data.bestGames
 import com.hcode.hgames.data.hotGames
+import com.stevdza.san.kotlinbs.components.BSButton
+import com.varabyte.kobweb.browser.file.LoadedFile
 import com.varabyte.kobweb.compose.css.CSSTransition
 import com.varabyte.kobweb.compose.css.Overflow
 import com.varabyte.kobweb.compose.css.functions.CSSImage
@@ -22,6 +24,7 @@ import kotlinx.browser.window
 import org.jetbrains.compose.web.css.Position
 import org.jetbrains.compose.web.css.ms
 import org.jetbrains.compose.web.css.px
+import org.jetbrains.compose.web.dom.Progress
 import org.w3c.dom.events.Event
 import org.w3c.dom.events.KeyboardEvent
 import org.w3c.dom.get
@@ -40,6 +43,13 @@ fun HomePage() {
         it.preventDefault()
     })
 
+    var loaded by remember { mutableStateOf(false) }
+    window.addEventListener("load", {
+       loaded = true
+    })
+
+
+
     Box(
         modifier = Modifier
             .id("mainBox")
@@ -50,9 +60,12 @@ fun HomePage() {
             .overflow(Overflow.Auto)
 
     ) {
-        MainPage(
-            dark = dark
-        )
+        if (loaded){
+            MainPage(
+                dark = dark
+            )
+        }
+
     }
 }
 

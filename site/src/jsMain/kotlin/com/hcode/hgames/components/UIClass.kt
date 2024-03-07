@@ -732,10 +732,7 @@ private fun LeftSide(
 
                 }
         )
-
     }
-
-
 
 }
 
