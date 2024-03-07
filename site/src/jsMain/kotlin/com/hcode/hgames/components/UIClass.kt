@@ -1153,9 +1153,9 @@ fun HomeGames(
     isPlay: MutableState<Boolean>
 ){
     val scope = rememberCoroutineScope()
-    var part by remember { mutableStateOf(11) }
+    var part by remember { mutableStateOf(0) }
     var count = (((window.innerWidth-100)/150)*2)-3
-    part = if (count%2 == 1) count else count - 1
+
     var more by remember { mutableStateOf(10) }
 
     val dataGames = if (more*part < data.lastIndex) data.subList(0,more*part)else data
@@ -1272,6 +1272,10 @@ fun HomeGames(
 
     scope.launch {
         op = 1
+    }
+
+    LaunchedEffect(count){
+        part = if (count%2 == 1) count else count - 1
     }
 }
 
